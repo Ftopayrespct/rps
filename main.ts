@@ -8,8 +8,18 @@ input.onButtonPressed(Button.B, function () {
 	
 })
 input.onGesture(Gesture.Shake, function () {
-	
+    Reset()
 })
+function Reset () {
+    OLED.init(128, 64)
+    OLED.writeStringNewLine("I wanna play a game - Saw")
+    P1 = 0
+    P2 = 0
+    Rounds = 0
+    Tie = 0
+    basic.pause(2000)
+    UpdateScore()
+}
 function UpdateScore () {
     OLED.clear()
     basic.showString("P1: " + P1)
@@ -24,11 +34,4 @@ let Tie = 0
 let Rounds = 0
 let P2 = 0
 let P1 = 0
-OLED.init(128, 64)
-OLED.writeStringNewLine("I wanna play a game - Saw")
-P1 = 0
-P2 = 0
-Rounds = 0
-Tie = 0
-basic.pause(2000)
-UpdateScore()
+Reset()
